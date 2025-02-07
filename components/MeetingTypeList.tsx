@@ -9,6 +9,8 @@ import { useToast } from "@/components/ui/use-toast"
 import { Textarea } from "@/components/ui/textarea"
 import ReactDatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
 import { fr } from 'date-fns/locale/fr';
+import { Input } from "@/components/ui/input"
+
 registerLocale('fr', fr)
 
 
@@ -146,7 +148,7 @@ const MeetingTypeList = () => {
                     className="text-center"
                     handleClick={() => {
                         navigator.clipboard.writeText(meetingLink);
-                        toast({title: "Link copied to clipboard"})
+                        toast({ title: "Link copied to clipboard" })
                     }}
                     image="/icons/checked.svg"
                     buttonIcon='/icons/copy.svg'
@@ -162,6 +164,21 @@ const MeetingTypeList = () => {
                 buttonText='Start meeting'
                 handleClick={createMeeting}
             />
+
+            <MeetingModal
+                isOpen={meetingState === 'isJoiningMeeting'}
+                onClose={() => setMeetingState(undefined)}
+                title='Type the link here'
+                className="text-center"
+                buttonText='Join meeting'
+                handleClick={() => router.push(values.link)}
+            >
+                <Input
+                    placeholder='Meeting Link'
+                    className='border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0'
+                    onChange={(e) => setValues({...values, link: e.target.value})}
+                />
+            </MeetingModal>
 
 
         </section>

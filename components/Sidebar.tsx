@@ -19,7 +19,7 @@ const Sidebar = () => {
                             key={link.label}
                             className={cn('flex gap-4 items-center p-4 rounded-lg justify-start', { 'bg-blue-1 rounded-xl py-4': isActive })}>
                             <Image 
-                                src={link.imgUrl} 
+                                src={link.imgURL} 
                                 width={24} 
                                 height={24} 
                                 alt={link.label} 

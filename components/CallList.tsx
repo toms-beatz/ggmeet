@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 
 "use client"
 import React, { useEffect } from 'react'
@@ -54,7 +54,8 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
 
                 setRecordings(recordings);
             } catch (error) {
-                toast({ title: 'Try again later', type: 'error', error: error.message});
+                toast({ title: 'Try again later'});
+                console.error(error);
             }
         }
         if (type === 'recordings') fetchRecordings();

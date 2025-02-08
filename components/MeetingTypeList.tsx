@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React, { useState } from 'react'
 import HomeCard from './HomeCard'
 import { useRouter } from 'next/navigation'
@@ -7,7 +6,7 @@ import { useUser } from '@clerk/nextjs'
 import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk'
 import { useToast } from "@/components/ui/use-toast"
 import { Textarea } from "@/components/ui/textarea"
-import ReactDatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
+import ReactDatePicker, { registerLocale } from 'react-datepicker'
 import { fr } from 'date-fns/locale/fr';
 import { Input } from "@/components/ui/input"
 

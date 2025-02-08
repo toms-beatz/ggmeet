@@ -54,11 +54,11 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
 
                 setRecordings(recordings);
             } catch (error) {
-                toast({ title: 'Try again later' })
+                toast({ title: 'Try again later', type: 'error', error: error.message});
             }
         }
         if (type === 'recordings') fetchRecordings();
-    }, [type, callRecordings])
+    }, [type, callRecordings, toast])
 
     const calls = getCalls();
     const noCallsMessage = getNoCallsMessage();
